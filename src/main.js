@@ -2,16 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import vuelidate from "vuelidate";
 
-import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import Vant from 'vant';
-import 'vant/lib/index.css';
 
-Vue.use(BootstrapVue);
-Vue.use(Vant);
+import axios from "axios";
+axios.defaults.baseURL = "https://demo.api-platform.com";
 
+Vue.use(vuelidate);
 Vue.config.productionTip = false
 
 new Vue({

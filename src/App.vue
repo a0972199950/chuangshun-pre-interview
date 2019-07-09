@@ -13,10 +13,11 @@
   body {
     margin: 0;
     padding: 0;
+    padding-top: 6rem;
   }
 
   #app {
-    max-width: 375px;
+    max-width: 576px;
     margin: 0 auto;
   }
 </style>

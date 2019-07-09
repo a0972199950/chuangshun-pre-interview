@@ -1,25 +1,31 @@
 <template>
-    <nav id="navbar" class="d-flex justify-content-between align-item-center p-2">
+        <nav 
+            id="navbar" 
+            class="d-flex align-items-center p-2"
+            :class="!!rightBtn + !!title + !!leftBtn > 1 ? 'justify-content-between' : 'justify-content-end'"
+        >
+            <button v-if="leftBtn === 'default'" class="btn btn-link text-white" @click="$router.go(-1)">
+                Back
+            </button>
 
-        <button class="btn btn-link text-white" @click="leftBtn.method">
-            {{leftBtn.text}}
-        </button>
+            <button v-else-if="leftBtn" class="btn btn-link text-white" @click="leftBtn.method">
+                {{leftBtn.text}}
+            </button>
 
+            <h3 v-if="title" class="title text-white">
+                {{title}}
+            </h3>
 
-        <h3 class="title text-white">
-            {{title}}
-        </h3>
+            <button v-if="rightBtn" class="btn btn-link text-white" @click="rightBtn.method">
+                {{rightBtn.text}}
+            </button>
 
-        <button class="btn btn-link text-white" @click="rightBtn.method">
-            {{rightBtn.text}}
-        </button>
-
-    </nav>
+        </nav>
 </template>
 
 <script>
 export default {
-    props: ["title", "leftBtn", "rightBtn"]
+    props: ["title", "leftBtn", "rightBtn"],
 }
 </script>
 
@@ -29,11 +35,14 @@ export default {
         margin: 0;
         font-weight: normal;
     }
-
-    
     
     #navbar {
         background: #FFC35F;
+        position: fixed;
+        top: 0;
+        z-index: 200;
+        width: 100%;
+        max-width: 576px;
 
         button {
             font-size: 2rem;
