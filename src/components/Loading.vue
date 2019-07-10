@@ -46,7 +46,7 @@ export default {
         position: fixed;
         top: 0;
         width: 100%;
-        max-width: 576px;
+        max-width: $mobile-breakpoint;
         display: flex;
         justify-content: center;
         align-items: center;

@@ -17,7 +17,7 @@
   }
 
   #app {
-    max-width: 576px;
+    max-width: $mobile-breakpoint;
     margin: 0 auto;
   }
 </style>

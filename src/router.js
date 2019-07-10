@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Books from "./views/Books.vue"
-import CreateBook from "./views/CreateBook.vue"
+import CreateBook from "./views/CreateBook.vue";
+import ReadBook from "./views/ReadBook.vue";
 import EditBook from "./views/EditBook.vue"
-import Loading from "./components/Loading.vue";
+import Test from "./components/Test.vue";
 
 Vue.use(Router)
 
@@ -24,14 +25,20 @@ export default new Router({
     },
 
     {
+      path: "/books/:id",
+      name: "readBook",
+      component: ReadBook
+    },
+
+    {
       path: "/books/:id/edit",
       name: "editBook",
       component: EditBook
     },
 
     {
-      path: "/loading",
-      component: Loading
+      path: "/test",
+      component: Test
     }
   ]
 })

@@ -3,9 +3,9 @@
         <app-loading v-if="loading"></app-loading>
 
         <app-Navbar
-            :title="null"
-            :leftBtn="null"
-            :rightBtn="{text: 'New', method: gotoCreateBook}"
+            :title="'Dashboard'"
+            :leftBtn="{useIcon: false, text: modeText, method: switchMode }"
+            :rightBtn="{useIcon: true,  icon: 'plus', method: gotoCreateBook }"
         ></app-Navbar>
 
 
@@ -15,9 +15,11 @@
                     <div class="col-6 mb-4">
                         <app-book-card
                             :id="book['@id']"
+                            :title="book.title"
                             :description="book.description"
                             :author="book.author"
                             :publicationDate="book.publicationDate"
+                            :inEditingMode="inEditingMode"
                         ></app-book-card>
                     </div>
                 </template>
@@ -54,6 +56,8 @@ export default {
 
     data(){
         return {
+            inEditingMode: false,
+            modeText: "Edit",
             books: [],
             amountToShow: 6,
             loadMoreIncrease: 6,
@@ -85,6 +89,20 @@ export default {
 
         gotoCreateBook(){
             this.$router.push({ name: "createBook" });
+        },
+
+        switchMode(){
+            this.inEditingMode = !this.inEditingMode;
+
+            switch(this.inEditingMode){
+                case true:
+                    this.modeText = "Cancel";
+                    break;
+
+                case false:
+                    this.modeText = "Edit";
+                    break;
+            }
         }
     },
 
