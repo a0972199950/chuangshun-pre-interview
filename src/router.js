@@ -4,7 +4,6 @@ import Books from "./views/Books.vue"
 import CreateBook from "./views/CreateBook.vue";
 import ReadBook from "./views/ReadBook.vue";
 import EditBook from "./views/EditBook.vue"
-import Test from "./components/Test.vue";
 
 Vue.use(Router)
 
@@ -36,9 +35,6 @@ export default new Router({
       component: EditBook
     },
 
-    {
-      path: "/test",
-      component: Test
-    }
+    { path: '*', redirect: '/books' }
   ]
 })

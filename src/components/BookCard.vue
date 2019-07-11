@@ -28,8 +28,7 @@ export default {
 
     data(){
         return {
-            bookCardHref: "readBook",
-            
+            bookCardHref: "readBook",            
         }
     },
 

@@ -27,8 +27,9 @@
 </template>
 
 <script>
-import Navbar from "./Navbar";
 import "../assets/loading.css";
+import Navbar from "./Navbar";
+
 export default {
     components: {
         appNavbar: Navbar

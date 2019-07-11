@@ -144,6 +144,7 @@ export default {
             padding: 0 1rem;
             font-weight: bolder;
         }
+        
     }
 
     .modal-header {
@@ -162,4 +163,11 @@ export default {
             font-size: $font-md;
         }        
     }
+
+    .modal-backdrop {
+        max-width: 576px !important;
+        transform: translateX(-50%) !important;
+        left: 50% !important;
+    }
+
 </style>

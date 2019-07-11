@@ -42,10 +42,12 @@
 
 
 <script>
+import axios from "axios";
+import moment from "moment";
+
 import Navbar from "../components/Navbar";
 import BookCard from "../components/BookCard";
 import Loading from "../components/Loading";
-import axios from "axios";
 
 export default {
     components: {
@@ -76,6 +78,15 @@ export default {
                 book["@id"] = id.substring(start, end);
                 return book;
             });
+
+            // 按照日期先後排列
+            books.sort((a, b) => {
+                if(moment(a.publicationDate).isBefore(moment(b.publicationDate))){
+                    return 1;
+                } else if(moment(a.publicationDate).isAfter(moment(b.publicationDate))) {
+                    return -1;
+                }
+            })
 
             this.books = books;
             this.loading = false;

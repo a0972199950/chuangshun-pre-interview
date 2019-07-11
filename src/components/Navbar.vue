@@ -59,7 +59,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
     h3 {
         margin: 0;
